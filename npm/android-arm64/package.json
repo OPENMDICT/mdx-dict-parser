@@ -1,0 +1,18 @@
+{
+  "name": "mdx-dict-parser-android-arm64",
+  "version": "0.0.0",
+  "os": [
+    "android"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "mdx-dict-parser.android-arm64.node",
+  "files": [
+    "mdx-dict-parser.android-arm64.node"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  }
+}

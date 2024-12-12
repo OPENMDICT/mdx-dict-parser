@@ -31,13 +31,32 @@
   "engines": {
     "node": ">= 10"
   },
+  "homepage": "https://github.com/openmdict",
+  "bugs": "https://github.com/OPENMDICT/node-mdx-dict-parser/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OPENMDICT/node-mdx-dict-parser"
+  },
+  "author": {
+    "name": "但为君故",
+    "email": "codemetic@outlook.com",
+    "url": "https://dreams.plus"
+  },
+  "keywords": [
+    "dictionary",
+    "mdx",
+    "dict",
+    "dictionary-parser",
+    "mdict",
+    "parser"
+  ],
   "scripts": {
     "artifacts": "napi artifacts",
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
-    "format:js":"prettier --write ./**/*.{js,jsx,ts,tsx}",
-    "format:rust":"cargo fmt",
-    "format":"pnpm run format:js && pnpm run format:rust",
+    "format:js": "prettier --write ./**/*.{js,jsx,ts,tsx}",
+    "format:rust": "cargo fmt",
+    "format": "pnpm run format:js && pnpm run format:rust",
     "prepublishOnly": "napi prepublish -t npm",
     "test": "jest",
     "universal": "napi universal",

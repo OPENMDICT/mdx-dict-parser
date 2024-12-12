@@ -1,6 +1,6 @@
 {
   "name": "mdx-dict-parser-linux-arm-musleabihf",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "os": [
     "linux"
   ],

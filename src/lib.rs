@@ -1,26 +1,35 @@
 #![deny(clippy::all)]
-use mdict_parser::{parser, mdict::Record};
+
+use std::fs::File;
+use std::io::Read;
 
 #[macro_use]
 extern crate napi_derive;
+use mdict_parser::parser;
 
-#[napi]
-pub fn sum(a: i32, b: i32) -> i32 {
-  a + b
+#[napi(constructor)]
+pub struct DictRecord {
+  pub word: String,
+  pub definition: String,
 }
 
 #[napi]
-pub fn parse(){
-  // let input = include_bytes!("../dictionary.mdx");
-  // let dict = parser::parse(input);
+fn parse_mdict(file: String) -> Vec<DictRecord> {
+  let mut file = File::open(file).expect("Unable to open file");
+  let mut bytes = Vec::new();
+  file.read_to_end(&mut bytes).expect("Unable to read file");
 
-  // // iter dictionary entries
-  // for key in dict.keys() {
-  //   println!("{:?}", item)
-  // }
+  let dict = parser::parse(&bytes);
 
-  // // iter all dictionary records
-  // for item in dict.items() {
-  //   println!("{:?}", item)
-  // }
+  let mut records: Vec<DictRecord> = Vec::new();
+
+  for item in dict.items() {
+    let record = DictRecord {
+      word: item.key.to_string(),
+      definition: item.definition.to_string(),
+    };
+    records.push(record);
+  }
+
+  return records;
 }

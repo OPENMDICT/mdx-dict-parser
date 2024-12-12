@@ -25,11 +25,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@napi-rs/cli": "^2.18.4",
-    "ava": "^6.0.1"
-  },
-  "ava": {
-    "timeout": "3m"
+    "prettier": "3.4.2",
+    "@napi-rs/cli": "^2.18.4"
   },
   "engines": {
     "node": ">= 10"
@@ -38,8 +35,11 @@
     "artifacts": "napi artifacts",
     "build": "napi build --platform --release",
     "build:debug": "napi build --platform",
+    "format:js":"prettier --write ./**/*.{js,jsx,ts,tsx}",
+    "format:rust":"cargo fmt",
+    "format":"pnpm run format:js && pnpm run format:rust",
     "prepublishOnly": "napi prepublish -t npm",
-    "test": "ava",
+    "test": "jest",
     "universal": "napi universal",
     "version": "napi version"
   }

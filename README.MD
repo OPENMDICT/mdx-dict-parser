@@ -19,8 +19,8 @@ import { parseMdict, DictRecord } from "mdx-dict-parser";
 
 const filePath = "./the/path/to/your/dictionary.mdx";
 const data: DictRecord[] = parseMdict(filePath);
-const thirdRecord = data[3];
-console.log(thirdRecord); // Print the third record.
+const firstRecord = data[0];
+console.log(firstRecord); // Print the first record.
 ```
 
 ## Roadmap
